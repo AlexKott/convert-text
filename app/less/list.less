@@ -1,0 +1,41 @@
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    &__item {
+        height: 40px;
+        line-height: 36px;
+        width: 20%;
+        padding: 4px 0;
+        &--small {
+            width: 10%;
+        }
+        &--large {
+            width: 40%;
+        }
+        &--type {
+            display: block;
+            width: 50px;
+            height: 30px;
+            margin: 5px;
+            line-height: 30px;
+            padding: 0;
+            text-align: center;
+            border-radius: 4px;
+            background-color: @darkGrey;
+            color: @white;
+        }
+        &:first-child,
+        &:nth-child(6n) {
+            padding-left: 12px;
+        }
+        &:nth-child(5n) {
+            padding-right: 12px;
+        }
+    }
+    &-header {
+        border: 2px solid @lightBlue;
+        .list__item {
+            margin: 6px 0;
+        }
+    }
+}

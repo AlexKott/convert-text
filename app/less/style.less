@@ -1,0 +1,43 @@
+@import 'variables';
+@import 'list';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    color: @darkGrey;
+    font-size: 14px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 920px;
+    margin: 40px auto;
+}
+
+.button {
+    height: 40px;
+    border: 2px solid @mediumGrey;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 14px;
+    background-color: @lightGrey;
+    &--download {
+        width: 100%;
+    }
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
