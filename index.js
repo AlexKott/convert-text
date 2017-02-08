@@ -18,13 +18,15 @@ app.post('/api', (req ,res) => {
             .add(() => {
                 return converter.save(type, req.body.name, req.body.content);
             })
-            .then((data) => console.log(data));
+            .then(() => console.log('success'))
+            .catch((error) => console.log(error));
     } else if (type === 'pdf') {
         pdfQueue
             .add(() => {
                 return converter.save(type, req.body.name, req.body.content);
             })
-            .then((data) => console.log(data));
+            .then((data) => console.log(data))
+            .catch((error) => console.log(error));
     }
 
     res.send({

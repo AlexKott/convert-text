@@ -1,0 +1,8 @@
+{
+    "filePath": "./files",
+    "pdfFormat": "A4",
+    "timeOut": {
+        "html": 10000,
+        "pdf": 1000
+    }
+}
