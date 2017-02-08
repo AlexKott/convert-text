@@ -4,13 +4,15 @@
     <meta charset="utf-8">
     <title>Reedsy Text Convert</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
+    <link rel="stylesheet" href="assets/quill.snow.css">
     <link rel="stylesheet" href="assets/style.css">
     <script src="assets/angular.js"></script>
+    <script src="assets/angular-route.js"></script>
+    <script src="assets/quill.js"></script>
     <script src="assets/script.js"></script>
   </head>
   <body>
-      <main class="wrapper">
-          <conversion-list></conversion-list>
-      </main>
+      <main class="wrapper" ng-view></main>
+      <svg-templates />
   </body>
 </html>

@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'buttons';
 @import 'list';
 
 * {
@@ -24,20 +25,12 @@ h1 {
     margin: 40px auto;
 }
 
-.button {
-    height: 40px;
-    border: 2px solid @mediumGrey;
-    border-radius: 4px;
-    font-weight: 700;
-    font-size: 14px;
-    background-color: @lightGrey;
-    &--download {
-        width: 100%;
-    }
-}
-
 .page-header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 24px;
+}
+
+#editor {
+    height: 60vh;
 }

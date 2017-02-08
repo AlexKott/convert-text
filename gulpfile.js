@@ -14,7 +14,12 @@ gulp.task('w', ['copy', 'less', 'js'], () => {
 });
 
 gulp.task('copy', () => {
-    return gulp.src('node_modules/angular/angular.js')
+    return gulp.src([
+            'node_modules/angular/angular.min.js',
+            'node_modules/angular-route/angular-route.min.js',
+            'node_modules/quill/dist/quill.min.js',
+            'node_modules/quill/dist/quill.snow.css'
+        ])
         .pipe(gulp.dest('./app/assets'));
 })
 

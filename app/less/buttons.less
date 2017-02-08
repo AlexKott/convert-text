@@ -1,0 +1,55 @@
+.button {
+    display: block;
+    height: 40px;
+    line-height: 38px;
+    padding: 0 12px;
+    border: 1px solid @mediumGrey;
+    border-radius: @borderRadius;
+    font-weight: 700;
+    font-size: 14px;
+    color: @darkGrey;
+    text-decoration: none;
+    background-color: @lightGrey;
+    cursor: pointer;
+    &:hover {
+        background-color: @white;
+    }
+    &:focus {
+        outline: currentColor auto 2px;
+    }
+    &[disabled] {
+        color: @mediumGrey;
+        border-color: @mediumGrey;
+        cursor: not-allowed;
+        &:hover {
+            background-color: @lightGrey;
+        }
+    }
+    &--cta {
+        background-color: @white;
+        &:hover {
+            background-color: @lightBlue;
+        }
+        .icon {
+            width: 16px;
+            height: 16px;
+            margin: 0 8px -2px;
+        }
+    }
+    &--download {
+        .icon {
+            width: 18px;
+            height: 18px;
+            margin: 2px 8px -2px;
+        }
+    }
+    &-row {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        margin: 8px 0;
+        .button:not(:first-child) {
+            margin-left: 8px;
+        }
+    }
+}
