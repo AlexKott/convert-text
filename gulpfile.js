@@ -18,7 +18,8 @@ gulp.task('copy', () => {
             'node_modules/angular/angular.min.js',
             'node_modules/angular-route/angular-route.min.js',
             'node_modules/quill/dist/quill.min.js',
-            'node_modules/quill/dist/quill.snow.css'
+            'node_modules/quill/dist/quill.snow.css',
+            'node_modules/moment/min/moment.min.js'
         ])
         .pipe(gulp.dest('./app/assets'));
 })

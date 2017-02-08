@@ -9,15 +9,22 @@
     <article class="list__item list__item--small">Status</article>
     <article class="list__item"></article>
 </header>
-<section class="list">
-    <article class="list__item list__item--large">Down the rabbit hole</article>
-    <article class="list__item">Sun, Jan 1</article>
-    <article class="list__item list__item--small"><label class="list__item--type">PDF</label></article>
-    <article class="list__item list__item--small"><svg class="icon icon-checked"><use xlink:href="#icon-checked"></use></svg>Processed</article>
-    <article class="list__item"><button class="button button--download"><svg class="icon icon-download"><use xlink:href="#icon-download"></use></svg>Download</article>
-    <article class="list__item list__item--large">Down the rabbit hole</article>
-    <article class="list__item">Sun, Jan 1</article>
-    <article class="list__item list__item--small"><label class="list__item--type">PDF</label></article>
-    <article class="list__item list__item--small"><svg class="icon icon-clock"><use xlink:href="#icon-clock"></use></svg>In Queue</article>
-    <article class="list__item"><button class="button button--download" disabled>Not ready yet</article>
+<section ng-repeat="file in $ctrl.fileList track by file._id" class="list">
+    <article class="list__item list__item--large">{{file.name}}</article>
+    <article class="list__item">{{file.huTime}}</article>
+    <article class="list__item list__item--small"><label class="list__item--type">{{file.type}}</label></article>
+
+    <article ng-if="file.isPending" class="list__item list__item--small">
+        <svg class="icon icon-clock"><use xlink:href="#icon-clock"></use></svg>In Queue
+    </article>
+    <article ng-if="file.isPending" class="list__item">
+        <button class="button button--download" disabled>Not ready yet</button>
+    </article>
+
+    <article ng-if="!file.isPending" class="list__item list__item--small">
+        <svg class="icon icon-checked"><use xlink:href="#icon-checked"></use></svg>Processed
+    </article>
+    <article ng-if="!file.isPending" class="list__item">
+        <button class="button button--download"><svg class="icon icon-download"><use xlink:href="#icon-download"></use></svg>Download</button>
+    </article>
 </section>

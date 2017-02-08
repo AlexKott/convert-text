@@ -5,6 +5,9 @@ const config = require('./config.json');
 
 module.exports = {
     save(type, name, content) {
+        if (!fs.existsSync(config.filePath)){
+            fs.mkdirSync(config.filePath);
+        }
         fileManager.create({ name, type, createdAt: new Date() });
         if (type === 'html') {
             return saveHTML(name, content);
