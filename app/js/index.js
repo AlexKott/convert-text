@@ -8,7 +8,7 @@ angular
     .component('newConversion', newConversion)
     .component('svgTemplates', { templateUrl: './templates/svgTemplates.html' })
 
-    .config(['$locationProvider', '$routeProvider', ($locationProvider, $routeProvider) => {
+    .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
         $locationProvider.hashPrefix('!');
         $routeProvider
             .when('/', { template: '<conversion-list />' })
