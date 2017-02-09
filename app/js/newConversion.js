@@ -1,14 +1,15 @@
-import { API_URL } from './constants';
+import { API_URL, CONFIRM, ERROR } from './constants';
 
 export default {
     templateUrl: './templates/newConversion.html',
-    controller: ['$http', function($http) {
+    controller: ['$http', 'NotificationService', function($http, NotificationService) {
         const quill = new Quill('#editor', {
             theme: 'snow',
             modules: {
                 toolbar: [['bold', 'italic', 'underline']]
             }
         });
+        NotificationService.show(CONFIRM, 'confirmed');
         this.convert = (type) => {
             $http
                 .post(API_URL, {
@@ -16,7 +17,9 @@ export default {
                     name: this.convName,
                     content: quill.root.innerHTML
                 })
-                .then((data) => console.log(data));
+                .then((data) => {
+                    NotificationService.show(CONFIRM, 'New conversion posted!');
+                });
         }
     }]
 };
