@@ -3,6 +3,6 @@
     "pdfFormat": "A4",
     "timeOut": {
         "html": 10000,
-        "pdf": 1000
+        "pdf": 100000
     }
 }

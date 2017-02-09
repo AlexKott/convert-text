@@ -1,13 +1,19 @@
 export default ['$timeout', function($timeout) {
     return {
         isVisible: false,
-        message: 'alert',
-        type: 'confirm',
+        message: '',
+        type: '',
         show(type, message) {
-            this.message = message;
-            this.type = type;
-            this.isVisible = true;
-            $timeout(() => this.isVisible = false, 2000);
+            $timeout.cancel(this.timeout);
+            $timeout(() => {
+                this.message = message;
+                this.type = type;
+                this.isVisible = true;
+            }, 0);
+            this.timeout = $timeout(() => {
+                this.isVisible = false;
+                this.message = '';
+            }, 2000);
         }
     };
 }]

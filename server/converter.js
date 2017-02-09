@@ -1,7 +1,7 @@
 const fs = require('fs');
 const pdf = require('html-pdf');
 const fileManager = require('./fileManager');
-const config = require('./config.json');
+const config = require('../config.json');
 
 module.exports = {
     save(type, name, content) {
@@ -28,7 +28,7 @@ function savePDF(name, content) {
                         reject(err);
                     } else {
                         fileManager.update({ name, path });
-                        resolve();
+                        resolve({ fileName: name, fileType: 'PDF' });
                     }
                 });
         }, config.timeOut.pdf);
@@ -47,7 +47,7 @@ function saveHTML(name, content) {
                     reject(err);
                 } else {
                     fileManager.update({ name, path });
-                    resolve();
+                    resolve({ fileName: name, fileType: 'HTML' });
                 }
             });
         }, config.timeOut.html);

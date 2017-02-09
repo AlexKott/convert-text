@@ -19,4 +19,12 @@ angular
             .when('/', { template: '<conversion-list />' })
             .when('/new/', { template: '<new-conversion />' })
             .otherwise('/');
+    }])
+    .run(['NotificationService', (NotificationService) => {
+        const ws = new WebSocket('ws://localhost:3010');
+
+        ws.onmessage = (message) => {
+            const msg = JSON.parse(message.data);
+            NotificationService.show(msg.type, msg.content)
+        };
     }]);

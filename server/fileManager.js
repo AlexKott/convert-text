@@ -22,7 +22,7 @@ module.exports = {
                 db
                     .collection('files')
                     .updateOne({ name: data.name }, { $set: { isPending: false, path: data.path } }, () => {
-                        console.log('updated document');
+                        console.log('updated');
                         // db.close();
                     });
             } else {

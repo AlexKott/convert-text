@@ -9,7 +9,7 @@ export default {
                 toolbar: [['bold', 'italic', 'underline']]
             }
         });
-        NotificationService.show(CONFIRM, 'confirmed');
+
         this.convert = (type) => {
             $http
                 .post(API_URL, {
@@ -17,8 +17,11 @@ export default {
                     name: this.convName,
                     content: quill.root.innerHTML
                 })
-                .then((data) => {
-                    NotificationService.show(CONFIRM, 'New conversion posted!');
+                .then((response) => {
+                    NotificationService.show(CONFIRM, response.data.message);
+                })
+                .catch((error) => {
+                    NotificationService.show(ERROR, 'An error occurred, please try again later!');
                 });
         }
     }]
