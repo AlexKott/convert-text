@@ -2,6 +2,7 @@ import conversionList from './conversionList';
 import newConversion from './newConversion';
 import notifyBox from './notifyBox';
 import NotificationService from './NotificationService';
+import { WEBSOCKET_URL, UPDATE } from './constants';
 
 angular
     .module('app', ['ngRoute'])
@@ -20,11 +21,15 @@ angular
             .when('/new/', { template: '<new-conversion />' })
             .otherwise('/');
     }])
-    .run(['NotificationService', (NotificationService) => {
-        const ws = new WebSocket('ws://localhost:3010');
+
+    .run(['$rootScope', 'NotificationService', ($rootScope, NotificationService) => {
+        const ws = new WebSocket(WEBSOCKET_URL);
 
         ws.onmessage = (message) => {
             const msg = JSON.parse(message.data);
-            NotificationService.show(msg.type, msg.content)
+            NotificationService.show(msg.type, msg.content);
+            if (msg.type === UPDATE) {
+                $rootScope.$broadcast('updateList');
+            }
         };
     }]);

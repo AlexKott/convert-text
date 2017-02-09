@@ -1,5 +1,5 @@
 .notification {
-    position: absolute;
+    position: fixed;
     top: 100px;
     right: 40px;
     width: 300px;
@@ -9,6 +9,9 @@
     background-color: @white;
     &--confirm {
         border-left: 16px solid @confirmColor;
+    }
+    &--update {
+        border-left: 16px solid @updateColor;
     }
     &--error {
         border-left: 16px solid @errorColor;

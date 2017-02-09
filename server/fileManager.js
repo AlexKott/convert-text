@@ -7,10 +7,7 @@ module.exports = {
             if (!err) {
                 db
                     .collection('files')
-                    .insertOne(Object.assign({}, data, { isPending: true }), () => {
-                        console.log('inserted document');
-                        // db.close();
-                    });
+                    .insertOne(Object.assign({}, data, { isPending: true }));
             } else {
                 console.log(err);
             }
@@ -21,10 +18,7 @@ module.exports = {
             if (!err) {
                 db
                     .collection('files')
-                    .updateOne({ name: data.name }, { $set: { isPending: false, path: data.path } }, () => {
-                        console.log('updated');
-                        // db.close();
-                    });
+                    .updateOne({ name: data.name }, { $set: { isPending: false, path: data.path } });
             } else {
                 console.log(err);
             }

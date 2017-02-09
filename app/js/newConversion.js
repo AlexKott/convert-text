@@ -18,6 +18,8 @@ export default {
                     content: quill.root.innerHTML
                 })
                 .then((response) => {
+                    quill.root.innerHTML = '';
+                    this.convName = '';
                     NotificationService.show(CONFIRM, response.data.message);
                 })
                 .catch((error) => {

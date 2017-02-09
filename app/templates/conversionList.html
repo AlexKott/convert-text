@@ -9,7 +9,7 @@
     <article class="list__item list__item--small">Status</article>
     <article class="list__item"></article>
 </header>
-<section ng-repeat="file in $ctrl.fileList track by file._id" class="list">
+<section ng-repeat="file in fileList track by file._id" class="list">
     <article class="list__item list__item--large">{{file.name}}</article>
     <article class="list__item">{{file.huTime}}</article>
     <article class="list__item list__item--small"><label class="list__item--type">{{file.type}}</label></article>

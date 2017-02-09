@@ -18,13 +18,15 @@ router.route('/api')
     })
     .post((req ,res) => {
         const type = req.body.type;
+        fileManager.create({ name: req.body.name, type, createdAt: new Date() });
+
         if (type === 'html') {
             htmlQueue
                 .add(() => {
                     return converter.save(type, req.body.name, req.body.content);
                 })
                 .then((info) => {
-                    notificationService.broadcast('confirm', `${info.fileName} was converted to ${info.fileType} and is ready to download.`);
+                    notificationService.broadcast('update', `${info.fileName} was converted to ${info.fileType} and is ready to download.`);
                 })
                 .catch((error) => {
                     notificationService.broadcast('error', 'There was an error converting the file.');
@@ -35,7 +37,7 @@ router.route('/api')
                     return converter.save(type, req.body.name, req.body.content);
                 })
                 .then((info) => {
-                    notificationService.broadcast('confirm', `${info.fileName} was converted to ${info.fileType} and is ready to download.`);
+                    notificationService.broadcast('update', `${info.fileName} was converted to ${info.fileType} and is ready to download.`);
                 })
                 .catch((error) => {
                     notificationService.broadcast('error', 'There was an error converting the file.');
